@@ -1,0 +1,1 @@
+/* o java script está incrementado diretamente no código... */

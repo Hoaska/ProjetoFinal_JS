@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+
+    <style>
+        /* Animação de fade-in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Delays em cascata */
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
+    </style>
+</head>
+
+<body>
+    <!-- Seções com animação -->
+    <section class="historia fade-on-load">
+        <p>O Holocausto:</p>
+        Hitler e os nazistas acreditavam que os arianos eram superiores e culparam os judeus pelos problemas da Alemanha. <br>
+        Isso levou ao assassinato de milhões de judeus em campos de concentração. <br>
+        Outros grupos também foram perseguidos e mortos, como pessoas com deficiência, comunistas, homossexuais, religiosos e ciganos.<br>
+    </section>
+
+    <section class="historia fade-on-load">
+        <p>Vitória dos Aliados (1943-1945)</p>
+        - Itália se rendeu e trocou de lado.<br>
+        - União Soviética avançou pelo leste da Europa.<br>
+        - Dia D: desembarque na Normandia (1944) e libertação da França.<br>
+        - Alemanha se rendeu em maio de 1945.<br>
+        - EUA lançaram bombas atômicas em Hiroshima e Nagasaki; Japão se rendeu em setembro.<br>
+    </section>
+
+    <section class="historia fade-on-load">
+        <p>Depois da guerra:</p>
+        - Alemanha foi dividida em dois lados (oriental e ocidental).<br>
+        - Europa destruída foi reconstruída com o Plano Marshall.<br>
+        - Criaram a ONU.<br>
+        - EUA e União Soviética viraram superpotências e começou a Guerra Fria.<br>
+    </section>
+
+    <!-- Botão com animação -->
+    <button id="btn-back" onclick="window.location.href='index.html'" style="margin-top:20px;" class="fade-on-load">
+        Voltar ao Início
+    </button>
+
+    <!-- Script da animação -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elementos = document.querySelectorAll('.fade-on-load');
+
+            elementos.forEach((el, i) => {
+                el.classList.add('fade-in');
+                el.classList.add(`delay-${(i % 3) + 1}`);
+            });
+        });
+    </script>
+</body>
+</html>

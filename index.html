@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PROJETO FINAL</title>
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <style>
+        /* Estilo da galeria */
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: #F5F5DC;
+        }
+
+        .card {
+            width: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(146, 146, 146, 0.1);
+            background-color: #F5F5DC;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card p {
+            padding: 10px;
+            text-align: center;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Animação de fade-in genérica */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Atrasos diferentes para criar efeito em cascata */
+        .delay-1 {
+            animation-delay: 0.3s;
+        }
+        .delay-2 {
+            animation-delay: 0.6s;
+        }
+        .delay-3 {
+            animation-delay: 0.9s;
+        }
+    </style>
+</head>
+<body>
+    <header class="fade-on-load">HISTÓRIA DA SEGUNDA GUERRA MUNDIAL</header>
+
+    <nav class="fade-on-load">
+        <ul class="fade-on-load">
+            <li class="fade-on-load" id="perguntas"><a href="perguntas.html">Perguntas</a></li>
+            <!--<li id="respostas"><a href="respostas.html">Respostas</a></li>-->
+        </ul>
+    </nav>
+
+    <!-- Declaração da página inicial -->
+    <section id="inicio" class="section-inicio fade-on-load">
+        <h1>Tema:</h1>
+        <div class="inicio-biografia">
+            <h2>Segunda Guerra Mundial</h2>
+            <p>
+                Olá, nesse pequeno projeto você verá uma história interativa, onde há a contextualização do conteúdo que uma breve explicação sobre o tema: "Segunda Guerra Mundial", que é dividido em início, meio e fim. Tem também um mini-quiz de 3 perguntas no header da página inicial, onde podem ser respondidas perguntas simples sobre o conteúdo apresentado
+            </p>
+        </div>
+    </section>
+
+    <!-- Criando os cards da página inicial -->
+    <section class="galeria fade-on-load" id="galeria">
+
+        <button id="btn1">
+            <div class="section-inicio fade-on-load card">
+                <a href="inicio.html"><img src="static/img/mulher-sem-noção-confusa-pensando-com-mão-no-queixo-ela-está-tomando-uma-decisão-200950861.webp" alt="Imagem 1"></a>
+                <p>Início</p>
+            </div>
+        </button>
+
+        <button type="submit" id="btn2">
+            <div class="section-inicio fade-on-load card" id="galeria2">
+                <a href="meio.html"><img src="static/img/istockphoto-1132758418-612x612.jpg" alt="Imagem 2"></a>
+                <p>Meio</p>
+            </div>
+        </button>
+
+        <button id="btn3">
+            <div class="section-inicio fade-on-load card" id="galeria3">
+                <a href="fim.html"><img src="static/img/jovem-empresario-de-sucesso-pensando-posando_176420-2626.jpg" alt="Imagem 3"></a>
+                <p>Fim</p>
+            </div>
+        </button>
+    </section>
+
+    <footer class="section-inicio fade-on-load">
+        <p>Projeto Final - História da Segunda Guerra Mundial</p>
+        <p>Desenvolvido por: Gabriel Hoaska L. Q. & Guilherme Valadão P. © 2025</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elementos = document.querySelectorAll('.fade-on-load');
+
+            elementos.forEach((el, i) => {
+                el.classList.add('fade-in');
+                // Cicla entre delay-1, delay-2 e delay-3 para evitar delays altos
+                el.classList.add(`delay-${(i % 3) + 1}`);
+            });
+        });
+    </script>
+</body>
+</html>

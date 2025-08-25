@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/styles.css" />
+
+    <style>
+        /* Animação de fade-in genérica */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Atrasos diferentes para criar efeito em cascata */
+        .delay-1 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.9s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Criamos as sessões para cada parte do conteúdo -->
+    <section class="historia fade-on-load">
+        <h1>Contextualiação da "Segunda Guerra Mundial"</h1>
+        <p>
+            A Segunda Guerra Mundial
+            <span style="color: #D1BA94;">(1939-1945)</span> foi o maior conflito do século XX. Envolveu países do mundo todo.
+            De um lado estavam os Aliados (como Reino Unido, EUA, França e União Soviética). Do outro, o Eixo (Alemanha, Itália e Japão).
+            <br />
+            Foi um desastre gigante: cerca de
+            <span style="color: #D1BA94;">45 milhões de mortos, 35 milhões de feridos e 3 milhões de desaparecidos</span>.
+            <br />
+            O custo financeiro foi absurdo, mas o pior mesmo foram as vidas perdidas.
+        </p>
+
+        <p>Por que aconteceu?</p>
+        - A Alemanha ficou revoltada com o Tratado de Versalhes, que a puniu depois da Primeira Guerra.<br />
+        - A economia estava quebrada e havia muito desemprego.<br />
+        - Surgiram governos radicais, como o nazismo (Hitler) e o fascismo (Mussolini).<br />
+        - Ideias de nacionalismo extremo e racismo, como a crença na “superioridade ariana”.<br />
+    </section>
+
+    <section class="historia fade-on-load">
+        <p>O que aconteceu na guerra:</p>
+        - Vitórias do Eixo (1939-1941)<br />
+        - Alemanha invadiu a Polônia (1939), Dinamarca, Noruega, Holanda, Bélgica e França.<br />
+        - Conquistas no norte da África.<br />
+        - Primeira derrota: Batalha da Grã-Bretanha.<br />
+    </section>
+
+    <!-- Botão de voltar à página inicial -->
+    <button id="btn-back" onclick="window.location.href='index.html'" style="margin-top:20px;" class="fade-on-load">
+        Voltar ao Início
+    </button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elementos = document.querySelectorAll(".fade-on-load");
+
+            elementos.forEach((el, i) => {
+                el.classList.add("fade-in");
+                el.classList.add(`delay-${(i % 3) + 1}`); // Repete delays 1, 2, 3
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+/* Modal de resposta do quiz */
+.modal-resposta {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.close-modal {
+    color: #333;
+    font-weight: bold;
+}
+/* Plano de fundo da página */
+body {
+    background-image: url('static/img/c55270f794e2a56aacfc653fd2b7f24e.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 10;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #4B5320;
+    color: #F5F5DC;
+    padding: 20px;  
+    text-align: center;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+/* Títulos */
+h1 {
+    color: #F5F5DC;
+    font-size: 26px;
+}
+
+h2 {
+    color: #F5F5DC;
+    font-size: 25px;
+}
+
+#inicio {
+    color: #F5F5DC;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+/* Parágrafos */
+#historia {
+    color: #F5F5DC;
+    font-size: 25px;
+}
+
+ul {
+    color: #F5F5DC;
+    font-size: 16px;
+}
+
+/* Imagem */
+img {
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 600px;
+    width: 15rem;
+    height: 15rem;
+}
+
+/* Biografia (cor dos links) */
+a {
+    color: #D1BA94;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F5F5DC;
+    text-decoration: underline;
+}
+
+/* Navegação */
+nav ul {
+    background-color: #7D7D7D;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+nav ul li {
+    margin: 15px;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+
+nav ul li a:hover {
+    color: #F5F5DC;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Seções */
+section {
+    background-color: #000000;
+    color: #F5F5DC;
+    padding: 69px;
+    border-radius: 20px;
+    border: 02px solid #F5F5DC;
+    margin: 10px;
+}
+
+/* Biografia */
+.section-sobre .sobre-biografia {
+    align-items: center;
+    background-color: #000000;
+    color: #F5F5DC;
+    padding: 0px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Rodapé (se quiser usar futuramente) */
+footer {
+    background-color: #000000;
+    color: #F5F5DC;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+button {
+    background-color: #F5F5DC;
+    color: #F5F5DC;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #F5F5DC;
+}
+
+#btn-back {
+    background-color: #F5F5DC;
+    color: #000000;
+}
+#btn-resposta {
+    background-color: #F5F5DC;
+    color: #000000;
+}
+
+#modal-content {
+    background-color: #000000;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    border-radius: 10px;
+    color: black;
+}
+
+#modal-resposta {
+    background-color: #0000004f;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 25px;
+}
+
+/* arrumando a fonte */
+#Mini-Quiz {
+    font-size: 25px;
+}
+
+/* arrumando a fonte */
+#modal-aviso {
+    font-size: 25px;
+}
+
+footer {
+  position: static; /* ou simplesmente remova position fixed/absolute se estiver */
+  width: 100%;
+  /* Outras estilizações */
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: #F5F5DC;
+}
+
+.card {
+  flex: 1 1 250px; /* flex-grow:1, flex-shrink:1, flex-basis:250px */
+  max-width: 300px;
+  min-width: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(146, 146, 146, 0.1);
+  background-color: #F5F5DC;
+  transition: transform 0.3s ease;
+}
+

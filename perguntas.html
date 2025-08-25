@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+<!--
+     <section id="perguntas">
+        <h1>Perguntas sobre a Segunda Guerra Mundial</h1>
+        <p>Perguntas de nível fácil:</p>
+        - Em que ano começou a Segunda Guerra Mundial?<br>
+        - Quais países faziam parte do Eixo? (cite pelo menos dois)<br>
+        - Aproximadamente quantas pessoas morreram durante a Segunda Guerra Mundial?<br>
+
+        <p>Perguntas de nível médio:</p>
+        - Qual foi a primeira derrota da Alemanha na guerra?<br>
+        - Qual evento marcou o início da virada dos Aliados no front oriental?<br>
+        - Quais dois países se tornaram superpotências após a Segunda Guerra Mundial?<br>
+
+        <p>Perguntas de nível difícil:</p>
+        - Qual tratado deixou a Alemanha insatisfeita e foi uma das causas da Segunda Guerra Mundial?<br>
+        - Em que ano aconteceu o Dia D e qual foi seu objetivo principal?<br>
+        - Além dos judeus, cite dois outros grupos perseguidos durante o Holocausto.<br>
+    </section>
+-->
+   
+
+<form>
+
+    <!--aqui são feitas as perguntas-->
+
+
+<section id="Mini-Quiz">
+    <h1>Mini-Quiz: Teste seus conhecimentos!</h1>
+
+    <p>1. Em que ano começou a Segunda Guerra Mundial?</p>
+    <input type="checkbox" name="pergunta1" class="check-pergunta1" id="ano2020" value="2020">
+    <label for="ano2020">2020</label> <br>
+    <input type="checkbox" name="pergunta1" class="check-pergunta1" id="ano1935" value="1935">
+    <label for="ano1935">1935</label><br>
+    <input type="checkbox" name="pergunta1" class="check-pergunta1" id="ano1939" value="1939">
+    <label for="ano1939">1939</label> <br>
+
+    <p>2. Quais países faziam parte do Eixo? (marque duas alternativas):</p>
+    <input type="checkbox" name="pergunta2" class="check-pergunta2" id="alemanha" value="Alemanha">
+    <label for="alemanha">Alemanha</label> <br>
+    <input type="checkbox" name="pergunta2" class="check-pergunta2" id="italia" value="Itália">
+    <label for="italia">Jamaica</label><br>
+    <input type="checkbox" name="pergunta2" class="check-pergunta2" id="japao" value="Japão">
+    <label for="japao">Japão</label> <br>
+
+    <p>3. Quais dois países se tornaram superpotências após a Segunda Guerra Mundial? (marque duas opções)</p>
+    <input type="checkbox" name="pergunta3" class="check-pergunta3" id="eua" value="EUA">
+    <label for="eua">EUA</label> <br>
+    <input type="checkbox" name="pergunta3" class="check-pergunta3" id="uniaosovietica" value="União Soviética">
+    <label for="uniaosovietica">União Soviética</label><br>
+    <input type="checkbox" name="pergunta3" class="check-pergunta3" id="reinounido" value="Reino Unido">
+    <label for="reinounido">Reino Unido</label> <br>
+
+<script>
+    // Permitir apenas uma checkbox marcada na pergunta 1
+    function limitarUmaCheckbox(classe) {
+        const checkboxes = document.querySelectorAll('.' + classe);
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', function() {
+                if (this.checked) {
+                    checkboxes.forEach(other => {
+                        if (other !== this) other.checked = false;
+                    });
+                }
+            });
+        });
+    }
+    limitarUmaCheckbox('check-pergunta1');
+
+    // Limitar seleção de até 2 checkboxes para perguntas 2 e 3
+    function limitarCheckboxes(classe) {
+        const checkboxes = document.querySelectorAll('.' + classe);
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', function() {
+                const marcados = Array.from(checkboxes).filter(c => c.checked);
+                if (marcados.length > 2) {
+                    this.checked = false;
+                    mostrarModalAviso();
+                }
+            });
+        });
+    }
+    limitarCheckboxes('check-pergunta2');
+    limitarCheckboxes('check-pergunta3');
+
+    // Função para mostrar modal de aviso
+    function mostrarModalAviso() {
+        document.getElementById('modal-aviso').style.display = 'block';
+    }
+</script>
+
+    <button id="btn-resposta" type="button" style="margin-top:20px;">Gabarito</button>
+
+    <!-- Modal de Resposta -->
+    <div id="modal-resposta" class="modal-resposta" style="display:none;">
+        <div class="modal-content" style="background-color: rgb(0, 0, 0); color: #F5F5DC;">
+            <span class="close-modal" id="close-modal" style="float:right; cursor:pointer; font-size: 25px; color: #F5F5DC;">&times;</span>
+            <h2>Respostas do Quiz</h2>
+            <p><b>1° Resposta:</b> 1939</p>
+            <p><b>2° Resposta:</b> Alemanha e Itália</p>
+            <p><b>3° Resposta:</b> EUA e União Soviética</p>
+        </div>
+    </div>
+
+    <!-- Modal de Aviso -->
+    <div id="modal-aviso" class="modal-resposta" style="display:none;">
+        <div class="modal-content" style="background-color: #000000;">
+            <span class="close-modal" id="close-modal-aviso" style="float:right; cursor:pointer; font-size: 25px; color: #F5F5DC;">&times;</span>
+            <h2>Atenção</h2>
+            <p>Você só pode marcar até 2 opções nesta questão!</p>
+        </div>
+    </div>
+
+    <script>
+        // Modal de respostas
+        document.getElementById('btn-resposta').onclick = function() {
+            document.getElementById('modal-resposta').style.display = 'block';
+        };
+        document.getElementById('close-modal').onclick = function() {
+            document.getElementById('modal-resposta').style.display = 'none';
+        };
+        // Modal de aviso
+        document.getElementById('close-modal-aviso').onclick = function() {
+            document.getElementById('modal-aviso').style.display = 'none';
+        };
+        window.onclick = function(event) {
+            var modalResposta = document.getElementById('modal-resposta');
+            var modalAviso = document.getElementById('modal-aviso');
+            if (event.target == modalResposta) {
+                modalResposta.style.display = 'none';
+            }
+            if (event.target == modalAviso) {
+                modalAviso.style.display = 'none';
+            }
+        };
+    </script>
+
+
+
+</section>
+
+<!--Botão de voltar à página inicial-->
+<button id="btn-back" type="button" onclick="window.location.href='index.html'" style="margin-top:20px;">Voltar ao Início</button>
+
+
+</body>
+</html>
